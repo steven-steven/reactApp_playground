@@ -1,21 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import App from './app';
+import './css/sass/materialize.css';
 
-import App from './components/App/index';
-import About from './components/About/index';
-import NotFound from './components/NotFound/index';
-import './index.css';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+import rootReducer from './reducers/rootReducer';
 
+const store = createStore (rootReducer);
 ReactDOM.render(
-    <Router>
-        <div>
-            <Switch>
-                <Route exact path="/" component={App}/>
-                <Route path="/about" component={About}/>
-                <Route component={NotFound}/>
-            </Switch>
-        </div>
-    </Router>, 
+    <Provider store={store}>
+        <App/>
+    </Provider>, 
     document.getElementById('root')
 );
