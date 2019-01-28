@@ -4,7 +4,7 @@ import './style.css';
 class NotFound extends Component {
   render() {
     return (
-      <div className="About">
+      <div className="notFound">
         <header className="About-header">
           <p>
             Not Found
